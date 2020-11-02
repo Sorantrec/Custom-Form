@@ -1,0 +1,100 @@
+@import '../../assets/scss/general-styles/_vars';
+
+.container {
+  @include boxSize($height: calculateVh(556), $max-height: 600);
+  @include flex;
+  width: 52.708638vw;
+  margin-top: calculateVh(48);
+  margin-left: 25.402635vw;
+  background-color: $white-color;
+  position: relative;
+}
+
+.leftBox {
+  position: relative;
+  background: center / cover url(../../assets/img/leftBoxBgImg.png) no-repeat;
+  width: 36%;
+  height: 100%;
+  overflow: hidden;
+
+  svg {
+    @include position_center(absolute, true, true, 2);
+    left: calc(50% + 12px);
+    width: 100%;
+  }
+
+  &::before {
+    @include pseudo;
+    @include position(absolute, 0, 0, 0, 0, 1);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(000, 000, 000, 0.8);
+  }
+}
+
+.asideItem {
+  @include font(400, 11, $white-color);
+  @include boxSize(25);
+  @include margin($bottom: calculateVh(66));
+  @include position(absolute, 0, $right: - calculateRem(75));
+
+  &:nth-of-type(2) {
+    @include margin($bottom: calculateVh(42));
+  }
+}
+
+.asideLine {
+  width: 100%;
+  height: 2px;
+  background-color: $grey-color;
+
+  &.active {
+    background-color: $green-color;
+  }
+}
+
+.asideNumber {
+  @include margin($top: calculateVh(8), $left: 8);
+}
+
+.asideTxt {
+  @include margin($top: calculateVh(4), $left: 8);
+}
+
+.main {
+  @include margin($top: calculateVh(42), $left: 50, $right: 50, $bottom: calculateVh(78));
+  width: 64%;
+}
+
+.title {
+  @include margin($right: 50);
+  line-height: 1.7;
+  margin-bottom: calculateVh(20);
+  letter-spacing: 0.28px;
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .leftBox {
+    display: none;
+  }
+
+  .main {
+    @include margin($left: 0, $right: 0);
+    @include padding($left: 18, $right: 18);
+    width: 100%;
+  }
+
+  .asideItem {
+    display: none;
+  }
+
+  .title {
+    margin: 0;
+  }
+}

@@ -1,0 +1,39 @@
+@import '../../../assets/scss/general-styles/_vars';
+
+.numberInputContainer {
+  @include basic-animation;
+  @include boxSize(52, 52);
+  @include margin($right: 20);
+  @include flex(center, center);
+  border: 2px solid $grey-color;
+  position: relative;
+
+  input {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    padding: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type=number]{
+      -moz-appearance: textfield;
+    }
+  }
+
+  &::after {
+    @include pseudo;
+    @include boxSize(10, 2);
+    @include position(absolute, $right: - calculateRem(16));
+    background-color: $grey-color;
+  }
+
+  input {
+    text-align: center;
+  }
+}

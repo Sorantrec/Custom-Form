@@ -1,0 +1,59 @@
+@import '../../../assets/scss/general-styles/_vars';
+
+.yearInputContainer {
+  @include basic-animation;
+  @include boxSize(144, 52);
+  @include padding($left: 5, $bottom: 0);
+  @include flex(center, center);
+  border: 2px solid $grey-color;
+  position: relative;
+
+  input {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    padding: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type=number]{
+      -moz-appearance: textfield;
+    }
+  }
+}
+
+.years {
+  @include basic-animation;
+  @include slideUp(999);
+  position: absolute;
+  top: 110%;
+  max-height: calculateRem(100);
+  overflow: hidden;
+  min-height: calculateRem(80);
+  height: initial;
+  width: 100%;
+  left: 0;
+  background-color: $white-color;
+
+  li {
+    @include padding(true, 10, 5, 10, 5);
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+.active {
+  @include slideDown(999);
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 991px) {
+  .yearInputContainer {
+    width: initial;
+  }
+}

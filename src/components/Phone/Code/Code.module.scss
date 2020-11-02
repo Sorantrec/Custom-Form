@@ -1,0 +1,24 @@
+@import '../../../assets/scss/general-styles/_vars';
+
+.select {
+  @include basic-animation;
+  @include slideUp(999);
+  position: absolute;
+  top: 110%;
+  max-height: calculateRem(100);
+  overflow: hidden;
+  min-height: calculateRem(80);
+  height: initial;
+  left: 0;
+  background-color: $white-color;
+
+  li {
+    @include padding(5);
+    cursor: pointer;
+  }
+}
+
+.active {
+  @include slideDown(999);
+  overflow-y: scroll!important;
+}

@@ -1,0 +1,22 @@
+@import './assets/scss/general-styles/_vars';
+
+.container {
+  background: url(./background-svg.svg) no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  @include font(300, 48, #fff);
+  @include padding($top: calculateVh(56));
+  margin-left: 47.7306vw;
+}
+
+@media screen and (max-width: 991px) {
+  .title {
+    @include font(300, 36);
+    margin-left: 0;
+    text-align: center;
+  }
+}

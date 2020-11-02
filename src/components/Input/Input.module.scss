@@ -1,0 +1,8 @@
+@import '../../assets/scss/general-styles/_vars';
+
+.block {
+  @include boxSize(28);
+  width: 100%;
+  display: block;
+  position: relative;
+}

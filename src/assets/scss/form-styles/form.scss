@@ -1,0 +1,117 @@
+@import '../general-styles/_vars.scss';
+
+.inputTitle {
+  @include font(400, 11, #333);
+  @include margin($bottom: calculateVh(10));
+  @include padding($left: 10);
+}
+
+.select,
+input{
+  @include basic-animation;
+  @include padding($left: 10, $bottom: calculateVh(12));
+  border: none;
+  border-bottom: 2px solid $grey-color;
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.select,
+input,
+.inputWrapper {
+  cursor: pointer;
+
+  &:focus-within {
+    border-color: $accent-color!important;
+  }
+}
+
+.select {
+  position: relative;
+  width: 80%;
+
+  &.active {
+    border-color: $accent-color;
+
+    .currentCode {
+      
+      &::before {
+        @include margin($top: - calculateVh(10));
+        transform: rotate(180deg) translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+.textInputWrapper {
+  @include padding($top: 40);
+  position: relative;
+}
+
+.currentCode {
+  @include padding($right: 30);
+  cursor: pointer;
+  position: relative;
+
+  &::before {
+    @extend %fonts-aw;
+    @include basic-animation;
+    @include pseudo;
+    @include position_center(absolute, false, true);
+    content: '\f0d7';
+    font-size: calculateRem(10);
+    color: $grey-color;
+    right: calculateRem(20);
+  }
+}
+
+.phoneWrapper {
+  @include flex(null , flex-end);
+  @include padding($top: calculateVh(28));
+  position: relative;
+
+  label {
+    flex: 1;
+
+    &:nth-of-type(2) {
+      flex: 2;
+    }
+  }
+}
+
+.errorMessage {
+  @include position_center(absolute, true);
+  @include padding($left: 12);
+  @include font(400, 10);
+  bottom: - calculateRem(18);
+  width: 100%;
+  color: #EB5757;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 991px) {
+  .phoneWrapper {
+    position: initial;
+
+    .select {
+      width: 90%;
+    }
+    
+    > div {
+      top: -2px;
+      left: calculateRem(20);
+      width: 25%;
+      display: block;
+      font-size: 0;
+    }
+
+    label {
+      flex: 1;
+  
+      &:nth-of-type(2) {
+        flex: 1;
+      }
+    }
+  }
+}

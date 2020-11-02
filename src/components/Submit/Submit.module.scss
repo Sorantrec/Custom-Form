@@ -1,0 +1,39 @@
+@import '../../assets/scss/general-styles/_vars';
+
+.submit {
+  @include boxSize($min-width: 230, $height: 50);
+  @include position(absolute, $right: - calculateRem(50), $bottom: - calculateRem(25));
+  @include flex(center, center);
+  background-color: $accent-color;
+  color: $white-color;
+  cursor: pointer;
+  width: 16.666667vw;
+  text-transform: uppercase;
+
+  input {
+    display: none;
+  }
+
+  &::before {
+    @include pseudo;
+    @include boxSize(50, 50);
+    @include position(absolute, $right: 0);
+    background-color: #7841F4;
+  }
+}
+
+.icon {
+  @include position_center(absolute, false, true);
+  right: calculateRem(17);
+}
+
+.title {
+  margin-right: 17.39%;
+}
+
+@media screen and (max-width: 991px) {
+  .submit {
+    left: 50%;
+    transform: translate(-50%);
+  }
+}

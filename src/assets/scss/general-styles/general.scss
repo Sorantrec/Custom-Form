@@ -1,0 +1,284 @@
+@import '_vars.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote {
+
+  &:before,
+  &:after {
+    content: "";
+    content: none;
+  }
+}
+
+q {
+
+  &:before,
+  &:after {
+    content: "";
+    content: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 87.5%;
+  overflow-x: hidden;
+}
+
+body {
+  * {
+    box-sizing: border-box;
+    outline: none;
+    line-height: 1.2;
+  }
+
+  position: relative;
+
+  overflow-x: hidden;
+
+  @include font(400, $bodyFs, $black-color);
+
+  img{
+    display: block;
+    width: 100%;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $black-color;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-top {
+  align-items: flex-start;
+}
+
+.align-bottom {
+  align-items: flex-end;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.relative {
+  position: relative;
+}
+
+.col-no-padding{
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+
+.animated-container {
+  &__block {
+    @include basic-animation(.6s);
+    // transition-delay: calc(.1s * var(--index));
+
+    &--left {
+      transform: translate(-50vw, -10vh) rotateX(90deg);
+    }
+
+    &--right {
+      transform: translate(50vw, -10vh) rotateX(90deg);
+    }
+
+    &--finished {
+      transform: translate(0, 0) rotateX(0);
+    }
+  }
+}
+
+.animated-icon {
+  @include basic-animation(.4s);
+  transition-delay: .2s;
+
+  &:hover {
+    transform: rotateX(360deg);
+  }
+}
+
+.dark-text {
+  color: $black-color;
+}
+
+.accent-text {
+  color: $accent-color;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.extrabold {
+  font-weight: 900;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}

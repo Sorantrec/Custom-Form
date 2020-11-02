@@ -1,0 +1,62 @@
+@import '../../assets/scss/general-styles/_vars.scss';
+
+.container {
+  @include padding($top: calculateVh(20));
+}
+
+.buttonsContainer {
+  @include flex(null , center);
+  position: relative;
+}
+
+.radioButton {
+  @include basic-animation;
+  @include boxSize(52, 52);
+  @include margin($right: 24);
+  @include flex(center, center);
+  border: 2px solid $grey-color;
+  position: relative;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    @include basic-animation;
+    @include pseudo;
+  }
+
+  &::before {
+    @include position_center(absolute, false, true);
+    @include boxSize(15, 15);
+    border: 2px solid $grey-color;
+    right: - calculateRem(12);
+    background-color: $white-color;
+  }
+
+  &::after {
+    @include position_center(absolute, false, true);
+    @include boxSize(3, 3);
+    @include fade(hide);
+    background-color: $green-color;
+    right: - calculateRem(4);
+  }
+
+  p {
+    @include margin($right: 4); 
+  }
+
+  &.active {
+    border-color: $green-color;
+
+    &::before {
+      border-color: $green-color;
+    }
+
+    &::after {
+      @include fade(show);
+    }
+  }
+}

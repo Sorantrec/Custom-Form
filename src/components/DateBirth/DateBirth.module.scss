@@ -1,0 +1,10 @@
+@import '../../assets/scss/general-styles/_vars';
+
+.container {
+  @include margin($top: calculateVh(24));
+  position: relative;
+}
+
+.dateContainer {
+  @include flex(null , center);
+}
